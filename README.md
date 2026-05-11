@@ -127,8 +127,8 @@ npm run dev
 
 ## Author
 
-Bhavesh Sharma — IIT (BHU) Varanasi, Civil Engineering IDD  
-Expert @ Codeforces (1860) · Guardian @ LeetCode (2180) · 5★ @ Codechef (2127)
+Harsh Kumar— IIT (BHU) Varanasi, Civil Engineering BTECH
+Expert @ Codeforces · 4★ @ Codechef
 
 ---
 
