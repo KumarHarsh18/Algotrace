@@ -1,0 +1,105 @@
+// This is your Prisma schema file — defines your database structure.
+// Run `npx prisma migrate dev --name init` to create the tables.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// A user who logged in via GitHub OAuth
+model User {
+  id         String   @id @default(cuid())
+  githubId   String   @unique
+  email      String?
+  name       String
+  avatar     String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // A user can have multiple CP platform profiles (CF, LC, CC)
+  cpProfiles CpProfile[]
+
+  @@map("users")
+}
+
+// A linked competitive programming account (one per platform per user)
+model CpProfile {
+  id         String    @id @default(cuid())
+  userId     String
+  platform   Platform  // CODEFORCES or LEETCODE
+  username   String
+  linkedAt   DateTime  @default(now())
+  lastSyncAt DateTime?
+
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  contests  Contest[]
+  problems  Problem[]
+  syncLogs  SyncLog[]
+
+  @@unique([userId, platform]) // one profile per platform per user
+  @@map("cp_profiles")
+}
+
+// A single contest participation record
+model Contest {
+  id           String    @id @default(cuid())
+  profileId    String
+  platform     Platform
+  contestId    String    // platform's own ID for the contest
+  contestName  String
+  rank         Int?
+  ratingChange Int?      // +ve or -ve
+  ratingAfter  Int?
+  solvedCount  Int       @default(0)
+  timestamp    DateTime
+
+  profile CpProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@unique([profileId, contestId]) // avoid duplicate entries
+  @@map("contests")
+}
+
+// A single solved problem
+model Problem {
+  id         String    @id @default(cuid())
+  profileId  String
+  platform   Platform
+  slug       String    // e.g. "two-sum" or "123A"
+  title      String
+  difficulty String?   // "Easy" / "Medium" / "Hard" or "800" / "1200" etc.
+  tags       String[]  // array of topic tags e.g. ["dp", "greedy"]
+  solvedAt   DateTime
+
+  profile CpProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@unique([profileId, slug]) // don't store duplicates
+  @@map("problems")
+}
+
+// Tracks when each sync happened and if it succeeded
+model SyncLog {
+  id        String     @id @default(cuid())
+  profileId String
+  syncedAt  DateTime   @default(now())
+  status    SyncStatus @default(PENDING)
+  error     String?
+
+  profile CpProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@map("sync_logs")
+}
+
+enum Platform {
+  CODEFORCES
+  LEETCODE
+}
+
+enum SyncStatus {
+  PENDING
+  SUCCESS
+  FAILED
+}
