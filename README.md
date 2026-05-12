@@ -131,5 +131,3 @@ Harsh Kumar— IIT (BHU) Varanasi, Civil Engineering BTECH
 Expert @ Codeforces · 4★ @ Codechef
 
 ---
-
-*Built as a full-stack portfolio project for software engineering placements.*
