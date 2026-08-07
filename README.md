@@ -118,7 +118,7 @@ npm run dev
 | GET | `/api/stats/topics` | Tag-level breakdown |
 | GET | `/api/stats/heatmap` | Daily solve calendar data |
 
-## Interview Talking Points
+##Important Points
 
 1. **Data normalization** — Codeforces and LeetCode have completely different API response formats. I built an AggregatorService that maps both into a unified internal schema.
 2. **Rate limiting** — Implemented exponential backoff for API calls + sync cooldown to avoid hammering external APIs.
