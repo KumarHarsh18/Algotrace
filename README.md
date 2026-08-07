@@ -31,24 +31,24 @@
 ## Project Structure
 
 ```
-algotrace/
-├── backend/
-│   ├── routes/          # Express route definitions
-│   ├── controllers/     # Request handlers (thin layer)
-│   ├── services/        # Business logic (CF API, LC API, aggregation)
-│   ├── middleware/      # JWT verify, rate limiter, error handler
-│   ├── prisma/          # schema.prisma + migrations
-│   ├── server.js        # Express app entry point
-│   └── package.json
-└── frontend/
-    ├── src/
-    │   ├── pages/       # Dashboard, Login, Contests, Profile
-    │   ├── components/  # Charts, layout, UI atoms
-    │   ├── hooks/       # useAuth, useStats custom hooks
-    │   ├── api/         # Axios instance + API functions
-    │   └── utils/       # Data formatting helpers
-    ├── index.html
-    └── package.json
+algotrace
+  backend
+    a)routes/          # Express route definitions
+    b)controllers/     # Request handlers (thin layer)
+    c)services/        # Business logic (CF API, LC API, aggregation)
+    d)middleware/      # JWT verify, rate limiter, error handler
+    e)prisma/          # schema.prisma + migrations
+    f)server.js        # Express app entry point
+    g)package.json
+  frontend/
+    a)src/
+        i)pages/       # Dashboard, Login, Contests, Profile
+        ii)components/  # Charts, layout, UI atoms
+        iii)hooks/       # useAuth, useStats custom hooks
+        iv)api/         # Axios instance + API functions
+        v)utils/       # Data formatting helpers
+    b)index.html
+    c)package.json
 ```
 
 ## Local Setup
