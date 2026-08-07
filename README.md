@@ -1,4 +1,4 @@
-# AlgoTrace 🏆
+# AlgoTrace 
 
 > A full-stack competitive programming analytics platform that aggregates your Codeforces and LeetCode performance data into a unified, beautiful dashboard.
 
