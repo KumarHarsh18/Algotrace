@@ -1,0 +1,683 @@
+/* =========================================
+   AI PERFORMANCE COACH
+   ========================================= */
+
+.ai-analysis {
+  position: relative;
+
+  margin-top: 28px;
+  margin-bottom: 28px;
+
+  padding: 28px;
+
+  border-radius: 18px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(124, 92, 255, 0.12),
+      transparent 35%
+    ),
+    #111318;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.ai-header {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 24px;
+}
+
+.ai-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+}
+
+.ai-title h2 {
+  margin: 0;
+
+  font-size: 21px;
+  font-weight: 650;
+
+  letter-spacing: -0.3px;
+}
+
+.ai-icon {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    #7c5cff,
+    #b56cff
+  );
+
+  color: white;
+
+  font-size: 18px;
+
+  box-shadow:
+    0 5px 18px rgba(124, 92, 255, 0.35);
+}
+
+.ai-subtitle {
+  margin: 9px 0 0 45px;
+
+  max-width: 650px;
+
+  color: #9297a5;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   ANALYZE BUTTON
+   ========================================= */
+
+.ai-button {
+  border: none;
+  outline: none;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 11px 17px;
+
+  border-radius: 10px;
+
+  color: white;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  background: linear-gradient(
+    135deg,
+    #7657ff,
+    #9c5cff
+  );
+
+  box-shadow:
+    0 6px 20px rgba(118, 87, 255, 0.25);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.ai-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 9px 25px rgba(118, 87, 255, 0.35);
+}
+
+.ai-button:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.7;
+}
+
+
+/* =========================================
+   SPINNER
+   ========================================= */
+
+.spinner {
+  width: 13px;
+  height: 13px;
+
+  border: 2px solid rgba(255, 255, 255, 0.35);
+
+  border-top-color: white;
+
+  border-radius: 50%;
+
+  animation: ai-spin 0.7s linear infinite;
+}
+
+@keyframes ai-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================
+   EMPTY STATE
+   ========================================= */
+
+.ai-empty {
+  margin-top: 25px;
+
+  padding: 35px 25px;
+
+  text-align: center;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.ai-empty-icon {
+  width: 48px;
+  height: 48px;
+
+  margin: 0 auto 14px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  font-size: 24px;
+
+  color: #a887ff;
+
+  background: rgba(124, 92, 255, 0.12);
+
+  box-shadow:
+    0 0 25px rgba(124, 92, 255, 0.08);
+}
+
+.ai-empty h3 {
+  margin: 0 0 7px;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.ai-empty p {
+  margin: 0 auto;
+
+  max-width: 570px;
+
+  color: #858b99;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================
+   FEATURE PILLS
+   ========================================= */
+
+.ai-features {
+  display: flex;
+
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 20px;
+}
+
+.ai-features span {
+  padding: 7px 11px;
+
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  color: #b8bdc9;
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   LOADING
+   ========================================= */
+
+.ai-loading {
+  margin-top: 24px;
+
+  padding: 42px 20px;
+
+  text-align: center;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.loading-orb {
+  width: 50px;
+  height: 50px;
+
+  margin: 0 auto 15px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(124, 92, 255, 0.12);
+
+  color: #a887ff;
+
+  font-size: 22px;
+
+  animation: ai-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes ai-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+
+    box-shadow:
+      0 0 0 rgba(124, 92, 255, 0);
+  }
+
+  50% {
+    transform: scale(1.06);
+
+    box-shadow:
+      0 0 30px rgba(124, 92, 255, 0.18);
+  }
+}
+
+.ai-loading h3 {
+  margin: 0 0 7px;
+
+  font-size: 15px;
+}
+
+.ai-loading p {
+  margin: 0;
+
+  color: #858b99;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   RESULT CONTAINER
+   ========================================= */
+
+.ai-result {
+  margin-top: 24px;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+/* =========================================
+   RESULT HEADER
+   ========================================= */
+
+.result-header {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 20px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.result-header h3 {
+  margin: 7px 0 0;
+
+  font-size: 16px;
+
+  font-weight: 600;
+}
+
+.result-badge {
+  display: inline-block;
+
+  padding: 4px 8px;
+
+  border-radius: 5px;
+
+  background: rgba(124, 92, 255, 0.12);
+
+  color: #a887ff;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================
+   RE-ANALYZE BUTTON
+   ========================================= */
+
+.reanalyze-button {
+  padding: 7px 11px;
+
+  border-radius: 7px;
+
+  background: transparent;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: #9da2ae;
+
+  font-size: 11px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.reanalyze-button:hover {
+  background: rgba(255, 255, 255, 0.05);
+
+  color: white;
+}
+
+
+/* =========================================
+   AI RESULT
+   ========================================= */
+
+.analysis-content {
+  padding: 24px 26px;
+
+  color: #c4c8d2;
+
+  font-size: 13px;
+
+  line-height: 1.75;
+
+  max-height: 650px;
+
+  overflow-y: auto;
+}
+
+
+/* Paragraphs */
+
+.analysis-content p {
+  margin: 8px 0 14px;
+}
+
+
+/* Section headings */
+
+.analysis-content h3.analysis-section-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin: 26px 0 14px;
+
+  padding-bottom: 10px;
+
+  color: #f0f1f5;
+
+  font-size: 15px;
+
+  font-weight: 650;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.analysis-content h3.analysis-section-title:first-child {
+  margin-top: 0;
+}
+
+.analysis-content h3.analysis-section-title::before {
+  content: '';
+
+  width: 4px;
+  height: 17px;
+
+  flex-shrink: 0;
+
+  border-radius: 4px;
+
+  background: linear-gradient(
+    180deg,
+    #8b6cff,
+    #b56cff
+  );
+}
+
+
+/* Strong text */
+
+.analysis-content strong {
+  color: #e7e8ed;
+
+  font-weight: 600;
+}
+
+
+/* =========================================
+   LISTS
+   ========================================= */
+
+.analysis-list {
+  margin: 8px 0 18px;
+
+  padding-left: 22px;
+}
+
+.analysis-list li {
+  margin-bottom: 10px;
+
+  padding-left: 3px;
+
+  color: #aeb3bf;
+}
+
+.analysis-list li::marker {
+  color: #8d72ff;
+}
+
+.analysis-list.numbered {
+  padding-left: 25px;
+}
+
+
+/* =========================================
+   PRACTICE RULE / BLOCKQUOTE
+   ========================================= */
+
+.analysis-tip {
+  margin: 18px 0;
+
+  padding: 13px 16px;
+
+  border-left: 3px solid #8568ff;
+
+  border-radius: 8px;
+
+  background: rgba(124, 92, 255, 0.07);
+
+  color: #b9b2d9;
+}
+
+.analysis-tip p {
+  margin: 0;
+}
+
+
+/* =========================================
+   TABLE
+   ========================================= */
+
+.analysis-table-wrapper {
+  margin: 20px 0;
+
+  overflow-x: auto;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 10px;
+}
+
+.analysis-table-wrapper table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  font-size: 12px;
+}
+
+.analysis-table-wrapper th {
+  padding: 12px 14px;
+
+  text-align: left;
+
+  white-space: nowrap;
+
+  color: #e1e3e8;
+
+  font-weight: 600;
+
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.analysis-table-wrapper td {
+  padding: 12px 14px;
+
+  vertical-align: top;
+
+  color: #aeb3bf;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.analysis-table-wrapper tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+
+/* =========================================
+   INLINE CODE
+   ========================================= */
+
+.analysis-content code {
+  padding: 2px 6px;
+
+  border-radius: 5px;
+
+  color: #bbaeff;
+
+  background: rgba(124, 92, 255, 0.1);
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   RESULT SCROLLBAR
+   ========================================= */
+
+.analysis-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+.analysis-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.analysis-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+
+  border-radius: 10px;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+  .ai-analysis {
+    padding: 20px;
+  }
+
+  .ai-header {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .ai-button {
+    width: 100%;
+  }
+
+  .ai-subtitle {
+    margin-left: 0;
+  }
+
+  .result-header {
+    align-items: flex-start;
+
+    gap: 12px;
+  }
+
+  .analysis-content {
+    padding: 20px;
+  }
+
+  .analysis-table-wrapper {
+    margin-left: -4px;
+    margin-right: -4px;
+  }
+}

@@ -39,6 +39,7 @@ let failedQueue = []; // queue requests that came in while refreshing
 
 api.interceptors.response.use(
   (response) => response, // success — pass through unchanged
+
   async (error) => {
     const originalRequest = error.config;
 
@@ -68,6 +69,7 @@ api.interceptors.response.use(
           `${import.meta.env.VITE_API_URL}/api/auth/refresh`,
           { withCredentials: true }
         );
+
         const newToken = res.data.accessToken;
         setAccessToken(newToken);
 
@@ -106,15 +108,25 @@ export const authAPI = {
 export const profilesAPI = {
   getAll: () => api.get('/profiles'),
   link: (platform, username) => api.post('/profiles', { platform, username }),
-  sync: (profileId) => api.post('/profiles/sync', profileId ? { profileId } : {}),
+  sync: (profileId) =>
+    api.post('/profiles/sync', profileId ? { profileId } : {}),
   unlink: (id) => api.delete(`/profiles/${id}`),
 };
 
 export const statsAPI = {
   overview: () => api.get('/stats/overview'),
-  contests: (platform) => api.get('/stats/contests', { params: platform ? { platform } : {} }),
+  contests: (platform) =>
+    api.get('/stats/contests', {
+      params: platform ? { platform } : {},
+    }),
   topics: () => api.get('/stats/topics'),
   heatmap: () => api.get('/stats/heatmap'),
+};
+
+// ─── AI API ───────────────────────────────────────────────────────────────────
+
+export const aiAPI = {
+  analyzePerformance: () => api.post('/ai/analyze'),
 };
 
 export default api;

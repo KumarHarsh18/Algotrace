@@ -11,6 +11,7 @@ const passport = require('passport');
 const authRoutes = require('./routes/auth');
 const profileRoutes = require('./routes/profiles');
 const statsRoutes = require('./routes/stats');
+const aiRoutes = require("./routes/ai");
 
 // Import passport config (sets up GitHub strategy)
 require('./middleware/passport');
@@ -35,6 +36,7 @@ app.use(passport.initialize()); // initialize passport (no sessions — we use J
 app.use('/api/auth', authRoutes);
 app.use('/api/profiles', profileRoutes);
 app.use('/api/stats', statsRoutes);
+app.use("/api/ai", aiRoutes);
 
 // Health check endpoint — useful for Railway deployment monitoring
 app.get('/health', (req, res) => {
