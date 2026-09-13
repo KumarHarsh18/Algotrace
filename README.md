@@ -11,17 +11,12 @@
 ## Screenshots
 
 ### Dashboard
-
-![Dashboard](./docs/screenshots/dashboard.png)
-
+ <img width="1288" height="812" alt="login png" src="https://github.com/user-attachments/assets/cfce1d23-8cc5-48c6-9f63-77cea7df5346" />
 ### Analytics
-
-![Analytics](./docs/screenshots/analytics.png)
-
+  <img width="995" height="708" alt="analytics png" src="https://github.com/user-attachments/assets/033d9eb0-0b01-42b1-ab99-767ad26a34f4" />
 ### AI Performance Coach
-
-![AI Performance Coach](./docs/screenshots/ai-coach.png)
-
+<img width="1138" height="801" alt="ai-coach png" src="https://github.com/user-attachments/assets/a0315562-8fb5-4567-8c82-5adde8757603" />
+<img width="1157" height="776" alt="ai-coach-plan png" src="https://github.com/user-attachments/assets/5d30f551-9eec-400d-aba2-824b0d59cc4b" />
 ## Features
 
 - **GitHub OAuth** — one-click login with secure persistent sessions
